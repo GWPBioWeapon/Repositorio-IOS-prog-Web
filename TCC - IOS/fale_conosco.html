@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PsiConnect</title>
+    <link rel="shortcut icon" href="CSS/LogoPsi.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="Semantic-UI-CSS-master/semantic.min.css">
+    <script src="Semantic-UI-CSS-master/semantic.min.js"></script>
+    <script>
+
+      /* 1 - cria um objeto XMLHttpRequest */
+      const xmlhttp = new XMLHttpRequest();
+
+      /* A propriedade onreadystatechange é acionada
+          toda vez que a propriedade readyState altera
+          de estado. */
+      xmlhttp.addEventListener('readystatechange', function () {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+              const objetoJS = JSON.parse(xmlhttp.responseText);
+              console.log(xmlhttp.responseText);
+
+              imprimeTabelaJS(objetoJS);
+          }
+      })
+
+      function loadJSONDocument() {
+          
+          // 2 - especifica a requisição
+          xmlhttp.open("GET", "./dadosAlunos.json", true);
+
+          // 3 - envia a requisição
+          xmlhttp.send();
+      }
+
+      function imprimeTabelaJS(jsObj) {
+
+          // o usuário deve conhecer os dados
+          
+          let tabela = "";
+          for (let i = 0; i < jsObj.length; i++) {
+              tabela += "<tr>"+
+                          "<td>" + jsObj[i].nomeProf + "</td>"+
+                          "<td>" + jsObj[i].areaProf +"</td>"+
+                          "<td>" + jsObj[i].telWP +"</td>"+
+                          "<td>" + jsObj[i].diaDisp +"</td>"+
+                          "</tr>";
+          }
+
+          const exporta = document.getElementById("exporta");
+          exporta.innerHTML += tabela;
+      }
+  </script>
+</head>
+<body>
+  <header>
+    <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fa fa-bars"></i>
+      </label>
+      
+     <label class="logo"><a href="home.html"><img src="CSS/LogoPsi.jpg" alt="LogoPsiConnect" height="78x"> </a><h1 id="logoescrita">PsiConnect</h1></label>
+
+     <ul>
+        <a href="home.html"><li class="ui blue button">Home</li></a>
+        <a href="sobre_nos.html"><li class="ui blue button">Sobre Nós</li></a>
+        <a href="agendar.html"><li class="ui blue button">Agendar Consulta</li></a>
+        <a href="fale_conosco.html"><li class="ui blue button">Agendamento Direto</li></a>
+        <a href="perguntas_frequentes.html"><li class="ui blue button">Ajuda</li></a>
+      </ul>
+  </nav>
+</header>
+<section class="area3">
+  <h1 class="textSN">Agendamento Direto</h1><br>
+  <p class="textSN">Existe a opção de efetuar um agendamento de nossos serviçõs diretamente sem precisar passar pela nossa triagem! <br>
+  Apenas veja uma lista completa de todos nossos profissionais atualmente disponiveis! <br>
+  <font color='red'>*lembrando que a lista é atualizada em tempo real*    
+  </font></p>
+  <div id="container"> 
+      <table id="exporta">
+          <tr>
+              <th>Nome</th>
+              <th>Área</th>
+              <th>Telefone(WhatsApp)</th>
+              <th>Dias Disponiveis</th>
+          </tr>
+      </table>
+  </div>
+
+  <script>
+      window.addEventListener("load", loadJSONDocument)
+  </script>
+</section>
+        <!-- footer -->
+        <footer>
+          <div class="wrapper">
+            <div class="footer-box">
+              <div class="company-footer">
+                <img src="CSS/LogoPsi.jpg" lt="LogoPsiConnect" height="78x">
+                <h2>PsiConnect</h2>
+                <p>Conectando você com sua saúde da forma mais rapida e simples. </p>
+              </div>
+            </div>
+            <div class="footer-box">
+              <div class="articles-footer">
+                <h2>Contate-nos</h2>
+                <ul class="footer-list footer-article-list">
+                  <li>
+                    <a href="agendar.html">Agende sua consulta</a>
+                  </li>
+                  <li>
+                    <a href="fale_conosco.html">Fale conosco</a>
+                  </li>
+                  <li>
+                    <a href="mailto:empresarialgreenboard@gmail.com">Tire suas duvidas</a>
+                  </li>
+                  <li>
+                    <a href="">Nos ligue já!: +11 96745 3892</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer-box">
+              <h2>Nos encontre nas redes sociais</h2>
+              <div class="articles-footer">
+                <ul class="footer-list">
+                  <li>
+                    <a href="">
+                      <i class="fab fa-facebook"></i>
+                      <span>Facebook</span>
+                    </a>
+                  </li>
+                <li>
+                  <a href="">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                  </a>
+                </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <div class="wrapper">
+              <p>Todos os direitos reservados a GreenBoard - 2018</p>
+            </div>
+          </div>
+        </footer>
+</body>
+</html>
