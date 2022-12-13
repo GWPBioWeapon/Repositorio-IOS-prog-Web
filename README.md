@@ -17,4 +17,4 @@ Forma de agendamento onde o cliente pode pular completamente a triagem e pegar d
 # Ajuda:
 Perguntas Frequentes/FAQ, área onde o cliente pode ver uma lista de perguntas que ele possa ter em relação á PsiConnect ou o site em si;
 
-**:A tabela do agendamento direto foi feita com Java e JSON pois permite que mesmo quem não tenha conhecimento nenhum de programação possa manipulá-la pelo JSON, além disso, foi implementada uma funcionalidade adicional no Java onde se torna possivel transformar o conteudo da tabela em um arquivo de texto(TXT) para atuar como backup
+**:A tabela do agendamento direto foi feita com Java e JSON pois permite que mesmo quem não tenha conhecimento nenhum de programação possa manipulá-la pelo JSON, além disso, foi implementada uma funcionalidade adicional no Java onde se torna possivel transformar o conteudo da tabela em um arquivo de texto(TXT) para atuar como backup.
